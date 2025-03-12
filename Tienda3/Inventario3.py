@@ -10,14 +10,15 @@ Fecha: 2025-03-11
 
 class Inventario:
     """Clase que representa el inventario de una tienda"""
-    def __init__(self, nombre, descripcion, clasificacion, cantidad, precio, total_precio, totalx5):
+    def __init__(self, nombre, descripcion, clasificacion, cantidad,
+                 precio, total_precio, totalx5):
         self.nombre = nombre
         self.descripcion = descripcion
         self.clasificacion = clasificacion
         self.cantidad = cantidad
         self.precio = precio
         self.total_precio = total_precio
-        self.totalx5 = totalx5 
+        self.totalx5 = totalx5
     # muestra los productos seleccionados
 
     def show_inventory(self):
@@ -26,7 +27,7 @@ class Inventario:
                 f"{self.clasificacion}",
                 f"{self.cantidad} Unidad(es)",
                 f"{self.precio} COP",
-                f"{self.total_precio} COP", 
+                f"{self.total_precio} COP",
                 f"{self.totalx5} COP"]
 
 
@@ -39,35 +40,34 @@ def add_product():
     precio = int(input(f"Precio unitario de {descripcion}: "))
     total_precio = precio * cantidad
     totalx5 = precio * 5
-    return Inventario(nombre, descripcion, clasificacion, 
+    return Inventario(nombre, descripcion, clasificacion,
                       cantidad, precio, total_precio, totalx5)
 
 
 def see_inventory(inventario):
     """Muestra el inventario"""
-    encabezado = ["Nombre", "Descripción", "Clasificación", 
+    encabezado = ["Nombre", "Descripción", "Clasificación",
                   "Cantidad", "Precio", "Precio total", "Precio x5 unidades"]
     print(
         f"{encabezado[0]:<15} {encabezado[1]:<25}"
         f"{encabezado[2]:<20} {encabezado[3]:<15}"
-        f"{encabezado[4]:<8} {encabezado[5]:<15}"
+        f"{encabezado[4]:<10} {encabezado[5]:<15}"
         f"{encabezado[6]:<18}"
     )
     print("--------------------------------------------"
-          "---------------------------------------------------"
-          "---------------------------------------------------")
+          "---------------------------------------------"
+          "---------------------------------------------")
     # Muestra el inventario
     for producto in inventario:
         (
-            nombre, descripcion, clasificacion, 
+            nombre, descripcion, clasificacion,
             cantidad, precio, total_precio, totalx5
         ) = producto.show_inventory()
         print(
             f"{nombre:<15} {descripcion:<25}"
             f"{clasificacion:<20} {cantidad:<15}"
-            f"{precio:<8} {total_precio:<15}" 
-            f"{totalx5:<18}")            
-        
+            f"{precio:<10} {total_precio:<15}"
+            f"{totalx5:<18}")
 
 
 def show_group_food(inventario):
