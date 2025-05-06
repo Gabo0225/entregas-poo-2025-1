@@ -60,7 +60,7 @@ def ingresar_matriz():
             a22 = int(input("a22: "))
             break
         except ValueError:
-            print("Datos no validos")
+            print("Datos no validos, solo numeros")
     return Matriz(a11, a12, a21, a22)
 
 
